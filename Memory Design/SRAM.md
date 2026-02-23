@@ -107,9 +107,9 @@ The designer must find a sizing sweet spot where all three margins are acceptabl
 
 ## Simulation Details
 
-- **Tool:** Cadence Virtuoso (Schematic & ADE)
-- **Process:** <!-- Add your PDK/process node here, e.g. GPDK 45nm -->
-- **V<sub>DD</sub>:** <!-- e.g. 1.0V -->
+- **Tool:** Cadence Virtuoso (Schematic & ADE), Cadence Layout MXL
+- **Process:** gpdk045
+- **V<sub>DD</sub>:** 1.1V
 - **Analysis:** DC sweeps for butterfly curves, transient simulations for read/write verification
 
 ---
