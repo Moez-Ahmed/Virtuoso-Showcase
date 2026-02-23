@@ -1,5 +1,4 @@
 SRAM is a 6 transistor memory device primarily used in cache memory. Each bit is held by two cross-coupled inverters (6T cell) , state is maintained by active feedback
-
 Both inverters hold state indefinitely as long as power is supplied so no refresh is needed, however, these devices are still volatile. Losing power corrupts any data stored
 <img width="604" height="288" alt="Image" src="https://github.com/user-attachments/assets/4e841d09-728b-47e5-ad3e-35cc13dfc036" />
 
