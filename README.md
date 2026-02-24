@@ -5,7 +5,16 @@ Talking repo structure: Each folder contains a writeup on each memory type, to a
 
 | Memory Type | Description | Tool | Process |
 |---|---|---|---|
+| SRAM + Peripherals | 6T cell with sense amplifier, precharge, and write driver circuits; implemented in a 1kb array; schematic -> layout -> DRC/LVS -> PEX with post-layout performance comparison | Cadence Virtuoso | gpdk045 |
+| DRAM + Peripherals | 1T1C cell with peripheral support circuits | Cadence Virtuoso | gpdk045 |
+| Gain Cell + Peripherals | 3T Gain Cell with peripheral support circuits | Cadence Virtuoso | gpdk045 |
+| FeCAP | Verilog-A behavioral model of a ferroelectric capacitor with an anti-ferroelectric/ferroelectric/anti-ferroelectric sandwich structure | Verilog-A, Sentaurus TCAD | — |
+
+
+| Analog Circuit | Description | Tool | Process |
+|---|---|---|---|
 | SRAM + Peripherals | 6T cell with sense amplifier, precharge, and write driver circuits | Cadence Virtuoso | gpdk045 |
 | DRAM + Peripherals | 1T1C cell with peripheral support circuits | Cadence Virtuoso | gpdk045 |
 | Gain Cell + Peripherals | 2T Gain Cell with peripheral support circuits | Cadence Virtuoso | gpdk045 |
 | FeCAP — AFe-Fe-AFe | Verilog-A behavioral model of a ferroelectric capacitor with an anti-ferroelectric/ferroelectric/anti-ferroelectric sandwich structure | Verilog-A, Sentaurus TCAD | — |
+
