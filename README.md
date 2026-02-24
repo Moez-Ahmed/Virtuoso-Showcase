@@ -1,5 +1,5 @@
 # Virtuoso-Showcase
-This Repository will simply be a journal of the most exciting work I've done with Cadence Virtuoso. The idea is to document and analyze my work to better understand the semiconductor design process.
+This Repository will simply be a journal of the most exciting work I've done with Cadence Virtuoso. The idea is to document and analyze my work to better understand the semiconductor design process. **I am working through this repo as of 2/24/2026 - I have added information on SRAM but expect to add the rest of the results by mid march**
 
 Talking repo structure: Each folder contains a writeup on each memory type, to access a write-up for a specific device access the .md file
 
