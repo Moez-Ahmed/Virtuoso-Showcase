@@ -44,14 +44,27 @@ The Static Noise Margin quantifies how much DC noise voltage the cell can tolera
 
 A larger SNM means greater noise immunity and a more robust cell.
 
+---
+
 ### Hold SNM
 
 - **Condition:** WL = 0 (access transistors off, cell isolated).
 - **What it measures:** The inherent stability of the cross-coupled inverter pair without any external disturbance.
 - **Expectation:** This is the best-case SNM. The butterfly curve should be wide and symmetrical, yielding the largest noise margin of the three modes.
 
-<!-- Hold SNM butterfly curve image placeholder -->
-<!-- <p align="center"><img width="500" alt="Hold SNM" src="" /></p> -->
+**Test Circuit**
+
+<p align="center">
+  <img width="600" alt="Hold SNM Test Circuit" src="YOUR_HOLD_TEST_CIRCUIT_URL_HERE" />
+</p>
+
+**Butterfly Curve**
+
+<p align="center">
+  <img width="600" alt="Hold SNM Butterfly Curve" src="YOUR_HOLD_BUTTERFLY_URL_HERE" />
+</p>
+
+---
 
 ### Read SNM
 
@@ -59,8 +72,19 @@ A larger SNM means greater noise immunity and a more robust cell.
 - **What it measures:** How much noise the cell can tolerate during a read without flipping. The voltage divider formed by AX and PD raises the low-side storage node, compressing the butterfly curve.
 - **Expectation:** Read SNM is significantly lower than hold SNM. A poor cell ratio leads to a collapsed or negative read SNM, meaning the cell cannot be read without risk of corruption.
 
-<!-- Read SNM butterfly curve image placeholder -->
-<!-- <p align="center"><img width="500" alt="Read SNM" src="" /></p> -->
+**Test Circuit**
+
+<p align="center">
+  <img width="600" alt="Read SNM Test Circuit" src="YOUR_READ_TEST_CIRCUIT_URL_HERE" />
+</p>
+
+**Butterfly Curve**
+
+<p align="center">
+  <img width="600" alt="Read SNM Butterfly Curve" src="YOUR_READ_BUTTERFLY_URL_HERE" />
+</p>
+
+---
 
 ### Write SNM
 
@@ -68,8 +92,17 @@ A larger SNM means greater noise immunity and a more robust cell.
 - **What it measures:** The ability of the write driver to upset the cell. Unlike read and hold, a *smaller* write SNM (or a collapsed butterfly curve) actually indicates **easier writing**. If the write SNM is too large, the cell is too stable to be written.
 - **Note:** Write margin is sometimes characterized separately as **Write Trip Point (WTP)** or **Write Noise Margin (WNM)** rather than by the butterfly method, depending on the methodology.
 
-<!-- Write SNM butterfly curve image placeholder -->
-<!-- <p align="center"><img width="500" alt="Write SNM" src="" /></p> -->
+**Test Circuit**
+
+<p align="center">
+  <img width="600" alt="Write SNM Test Circuit" src="YOUR_WRITE_TEST_CIRCUIT_URL_HERE" />
+</p>
+
+**Butterfly Curve**
+
+<p align="center">
+  <img width="600" alt="Write SNM Butterfly Curve" src="YOUR_WRITE_BUTTERFLY_URL_HERE" />
+</p>
 
 ---
 
@@ -105,18 +138,44 @@ The designer must find a sizing sweet spot where all three margins are acceptabl
 
 ---
 
+## Layout & PEX Verification
+
+After completing the schematic-level design, the cell was laid out in Cadence Layout MXL using the gpdk045 process rules. A parasitic extraction (PEX) was then run to capture the RC parasitics introduced by the physical implementation.
+
+Transient simulations were performed across three views — **schematic**, **extracted (PEX)**, and **layout** — to verify functional correctness and assess the impact of parasitics on write and read performance.
+
+### Write a 1 / Read a 1
+
+The waveforms below compare the internal node voltages and bitline behavior across all three views for a write-1 followed by a read-1 sequence.
+
+**Schematic**
+
+<p align="center">
+  <img width="700" alt="Schematic Write-1 Read-1 Transient" src="YOUR_SCHEMATIC_TRANSIENT_URL_HERE" />
+</p>
+
+**Extracted (PEX)**
+
+<p align="center">
+  <img width="700" alt="PEX Write-1 Read-1 Transient" src="YOUR_PEX_TRANSIENT_URL_HERE" />
+</p>
+
+**Layout**
+
+<p align="center">
+  <img width="700" alt="Layout Write-1 Read-1 Transient" src="YOUR_LAYOUT_TRANSIENT_URL_HERE" />
+</p>
+
+> Any timing differences between the schematic and PEX results reflect the added capacitance and resistance from metal routing and diffusion parasitics. The cell layout was iterated until functional behavior was preserved and degradation in switching speed was within acceptable bounds.
+
+---
+
 ## Simulation Details
 
 - **Tool:** Cadence Virtuoso (Schematic & ADE), Cadence Layout MXL
 - **Process:** gpdk045
 - **V<sub>DD</sub>:** 1.1V
 - **Analysis:** DC sweeps for butterfly curves, transient simulations for read/write verification
-
----
-
-## Results
-
-*Results and butterfly curve plots to be added as simulations are completed.*
 
 ---
 
